@@ -1,0 +1,4 @@
+/* default stage of alert is invisible */
+.invisible {
+    visibility: hidden
+};

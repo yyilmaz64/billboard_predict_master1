@@ -1,0 +1,98 @@
+#box-proj-info, #box-terms {
+    margin-bottom: 20px;
+}
+.proj-info-front {
+    /* padding: 10px; */
+    position: absolute;
+    top: 0;
+    z-index: 900;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
+    border-radius: 7px;
+    display: flex;              /* establish flex container */
+    flex-direction: column;     /* stack flex items vertically */
+    justify-content: center;    /* center items vertically, in this case */
+    align-items: center; 
+}
+
+#frontA {
+    background-image: url('../img/concert.jpg');
+}
+
+#frontB {
+    background-image: url('../img/speakerElvis.jpg');
+}
+
+
+
+#proj-info-back {
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    z-index: 800;
+    width: inherit;
+    height: inherit;
+}
+
+#front-pi-text {
+    color:white;
+    text-align: center;
+    -webkit-text-stroke: 2px black;
+}
+
+.back-pi-box-text {
+    font-size: 17px;
+}
+
+#hidden-text {
+    display: none;
+    color: white;
+}
+
+
+#box-terms-front {
+    /* padding: 10px; */
+    position: absolute;
+    top: 0;
+    z-index: 900;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    background-image: url('../img/earphones.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: bottom;
+    border-radius: 7px;
+    display: flex;              
+    /* flex-direction: column;      
+    justify-content: center;     */
+    /* align-items: center;  */
+    display: -webkit-flex;
+}
+#front-terms-text {
+    margin: auto 0;
+    margin-left: 55%;
+}
+
+#box-terms-back {
+    padding-left: 20px;
+    padding-right: 15px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    position: absolute;
+    top: 0;
+    z-index: 800;
+    width: inherit;
+    height: inherit;
+}
+
+#box-terms-list {
+    font-size: 16px;
+}

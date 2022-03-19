@@ -1,0 +1,23 @@
+/* normal margin */
+.topBuffer {
+    margin-top: 30px;
+}
+/* margin top for when the alert appears */
+.topEdit {
+    margin-top: 10px;
+}
+
+/* button to other page */
+.otherPage {
+    color: ghostwhite;
+}
+
+/* background page colour */
+body {
+    background-color: RGB(252, 252, 252);
+}
+
+/* text box background */
+.form-control {
+    background-color: white !important;
+}

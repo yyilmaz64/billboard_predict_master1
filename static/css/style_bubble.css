@@ -1,0 +1,18 @@
+#choice-alert, #year-display, #x-display, #y-display {
+    display: none;
+}
+
+#year-display, #x-display, #y-display {
+    padding-right: 10px;
+}
+#choice-alert {
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+#selection-choices ul {
+    list-style: none;
+}
+#selection-choices li {
+    display: inline;
+}

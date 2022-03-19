@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Top Tracks 2010-2020</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ url_for('static', filename='css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flip_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_bubble.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bar_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pageElements.css') }}">
+</head>
+
+<body id="page-top">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="#">Top Tracks Playspace</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#heat-sunburst">Heatmap <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#heat-sunburst">Sunburst</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#bubble-row">Bubble</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#bar-row">Bar</a>
+              </li>
+          </ul>
+          <button type="button" class="btn btn-outline-light"><a class='nav-link otherPage' href='/'>Hit Predictor</a></button>
+        </div>
+    </nav>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+    <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            
+            <!-- Main Content -->
+            <div id="content" style='padding-top: 40px;'>
+
+               
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <!-- text explanation row -->
+                    <div class='row'>
+                        <div class='col-md-8'>
+                            <div class='card' id="box-proj-info">
+                                <div class="front justify-content-center proj-info-front" id='frontA'>
+                                    <h2 id='front-pi-text'><strong>Project Information</strong></h2>
+                                    <h4 id='hidden-text'>Click Me!</h4>
+                                </div>
+                                <div class="back" id='proj-info-back'>
+                                    <h5><strong>Scope and Inspiration</strong></h5>
+                                    <p class='back-pi-box-text'>This webpage displays information from a <a href="https://www.kaggle.com/leonardopena/top-spotify-songs-from-20102019-by-year" target='_blank'>Kaggle dataset</a> on the top songs (according to Billboard rankings) worldwide on Spotify between 2010 and 2019.</p>
+                                    <p class='back-pi-box-text'>We were inspired to work on this dataset because Spotify is a widely used streaming application, and drawing connections between different song qualities (here called "factors") seemed like an intriguing idea.</p>
+                                    <h5><strong>Points of Interest</strong></h5>
+                                    <ul>
+                                        <li class='back-pi-box-text'>The three strongest positive correlations found are between decibels and energy (0.538), valence and danceability (0.502), and valence and energy (0.41). The strongest negative correlation was between acousticness and energy (-0.562). (Heatmap)</li>
+                                        <li class='back-pi-box-text'>The pop genre is always 'popular', making up 80% of the top tracks (Sunburst)</li>
+                                        <li class='back-pi-box-text'>2013 marks the year where a greater variety of genres start appearing within the top tracks (Bubble)</li>
+                                        <li class='back-pi-box-text'>2013 and 2015 tracks are high in positivity (valence), danceability and energy. They also seem to be years with the most popular tracks. Meanwhile 2012 and 2019 mark a downturn in all these factors. (Bar)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='col-md-4'>
+                            <div class='card' id="box-terms">
+                                <div class="front" id='box-terms-front'>
+                                    <h2 id='front-terms-text'><strong>Terms</strong></h2>
+                                </div>
+                                <div class="back" id='box-terms-back'>
+                                    <ul id='box-terms-list'>
+                                        <li>Popularity/pop: how popular a song is. The higher the number, the more popular it is.</li>
+                                        <li>Speechiness/spch: how much spoken word is in the track.</li>
+                                        <li>Acoustic-ness/acous: how acoustic the song is.</li>
+                                        <li>Duration/dur: how long the track is (in seconds).</li>
+                                        <li>Valence/val: how positive the track is.</li>
+                                        <li>Liveness/live: how likely it is for the track to be a live recording.</li>
+                                        <li>Decibels/dB: how loud the track is.</li>
+                                        <li>Danceability/dnce: how easy it is to dance to the song.</li>
+                                        <li>Energy/nrgy: how energetic the song is.</li>
+                                        <li>Beats Per Minute/bpm: how many beats per minute, or, the track's tempo.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- row for heatmap and sunburst -->
+                    <div class="row" id='heat-sunburst'>
+                        <!-- col for heatmap -->
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header -->
+                                <div
+                                    class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Correlation Heatmap</h6>
+                                    <hr>
+                                    <p>This chart is a correlation heatmap showing the level of relation between the different factors of each song. The values within this chart range from -1 to 1, with 1 signifying a closer relation.</p>
+                                    <nl>
+                                        <p>Hover over the tile to see the correlation value. Use the heat legend to see the r-value.</p>
+                                    </nl>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <div id='heatmap-corr'></div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div id='heatmap-corr-legend'></div>
+                                        </div>
+                                    <!-- end of heatmap graph/legend row -->
+                                    </div>
+                                <!-- end of card body -->
+                                </div>
+                            <!-- end of card -->
+                            </div>
+                        <!-- end of heatmap col -->
+                        </div>
+                        <!-- sunburst div -->
+                        <div class="col-lg-6 col-xs-12">
+                            <div class="card shadow mb-4">
+                                <div class="card-header">
+                                    <h6 class="m-0 font-weight-bold text-primary">Sunburst Chart</h6>
+                                    <hr>
+                                    <p>This chart is a sunburst which depicts genres, artists and songs. The innermost circle shows the genre; within each genre are the artist names, and the outermost circle shows the songs by each artist.</p>
+                                    <nl>
+                                        <p>Click on each slice to expand that segment.</p>
+                                    </nl>
+                                </div>
+                            <iframe src=" {{ url_for('static', filename='html/sunburst.html') }} " style="width:675px; height: 540px;" frameBorder='0'></iframe>
+                            <!-- end of card div -->
+                            </div>
+                        <!-- end of sunburst div -->
+                        </div>
+                    </div>
+
+                    <div class="row" id='bubble-row'>
+                        <!-- Bubble Chart -->
+                        <div class="col-md-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header-->
+                                <div class="card-header" style="width: 100%;">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bubble Chart</h6>
+                                    <hr>
+                                    <p>This graph shows a bubble chart showing the tracks from a given year, comparing factors of each track against each other. The color of the bubbles are determined by the genre of the tracks, and the popularity of the track determines the bubble size.</p>
+                                    <nl>
+                                        <p>Choose the year, and factors you want on the x- and y-axes, then click 'Make Chart' to see those factors compared.</p>
+                                    </nl>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class='col-md-12'>
+                                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                            <a class="navbar-brand" href="#">Track Components</a>
+                                            <!-- collapsable section for when page is small -->
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                              <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <!-- three dropdowns -->
+                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                              <ul class="navbar-nav mr-auto" id='navbar-ul'>
+                                                <!-- years -->
+                                                <li class="nav-item dropdown" id='year-dropdown'>
+                                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Year
+                                                  </a>
+                                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <!-- will be filled in by JS -->
+                                                  </div>
+                                                </li>
+                                                <!-- x axis -->
+                                                <li class="nav-item dropdown" id='x-axis-dropdown'>
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      X Axis
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                      <!-- filled by JS -->
+                                                    </div>
+                                                  </li>
+                                                <!-- y axis -->
+                                                <li class="nav-item dropdown" id="y-axis-dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      Y Axis
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                      <!-- filled by JS -->
+                                                    </div>
+                                              </ul> 
+                                            
+                                            <button class="btn btn-outline-success my-2 my-sm-0" id="trigger-bubble" type="submit">Make Chart</button>
+                                            </div>
+                                        </nav> 
+                                    </div>
+                                </div>
+                                <!-- Alert that becomes visible upon user choice -->
+                                <div class="alert alert-light" role="alert" id='choice-alert'>
+                                    <div class="mx-auto" style="width: 800px;">
+                                        <div id="selection-choices">
+                                            <ul>
+                                                <li><strong>Current Changes to Apply:</strong></li>
+                                                <li id='year-display'></li>
+                                                <li id='x-display'></li>
+                                                <li id='y-display'></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="row bubble-container">
+                                    <div class="col-md-12">
+                                        <div id="bubble"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bar Graph Row -->
+                    <div class="row" id='bar-row'>
+
+                        <!-- Content Column -->
+                        <div class="col-md-12">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header-->
+                                <div
+                                    class="card-header" style="width: 100%;">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar</h6>
+                                    <hr>
+                                    <p>This graph is a bar chart that organizes the tracks per year, and shows the total value of all the tracks for a certain factor. </p>
+                                    <nl>
+                                        <p>Choose the factor you want displayed, then click 'Make Chart' to see that factor compared across the years compared.</p>
+                                    </nl>
+                            </div>
+                            <div class="card-body">
+                                <div class='row'>
+                                    <div class='col-md-12'>
+                                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                            <a class="navbar-brand" href="#">Years Comparisons</a>
+                                            <!-- collapsable section for when page is small -->
+                                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                              <span class="navbar-toggler-icon"></span>
+                                            </button>
+                                            <!-- a dropdown -->
+                                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                              <ul class="navbar-nav mr-auto" id='navbar-ul'>
+                                                <!-- years -->
+                                                <li class="nav-item dropdown" id='factor-dropdown'>
+                                                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Factor
+                                                  </a>
+                                                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                    <!-- will be filled in by JS -->
+                                                  </div>
+                                                </li>
+                                                <li class="nav-item active" id='factor-choice-label'>
+                                                    <a class="nav-link" href="#">Factor Choice: <span class="sr-only">(current)</span></a>
+                                                </li>
+                                                <li class="nav-item active" id='factor-choice-text'>
+                                                    <a class="nav-link" href="#"><span class="sr-only">(current)</span></a>
+                                                </li>
+                                              </ul> 
+                                            
+                                            <button class="btn btn-outline-success my-2 my-sm-0" id="trigger-bar" type="submit">Make Chart</button>
+                                            </div>
+                                        </nav> 
+                                    </div>
+                                </div>
+                                <!-- bar chart -->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="bar"></div>
+                                    </div>
+                                </div>
+                            <!-- end of card body -->
+                            </div>
+                        <!-- end of card -->
+                        </div>  
+                    <!-- end of row -->
+                    </div>
+                </div>               
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Angeli, Jini Hassan, Ryan Eccleston-Murdock, Wasif Khan, and Sarah D. Hood
+                            2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    
+    <!-- Core plugin JavaScript-->
+    <script src="{{ url_for('static', filename='vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    
+    <!-- Custom scripts for all pages-->
+    <script src="{{ url_for('static', filename='js/sb-admin-2.min.js') }}"></script>
+
+
+    <!-- Page level plugins -->
+    <script src="{{ url_for('static', filename='vendor/chart.js/Chart.min.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/bubble.js') }}"></script>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>   
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>  
+    <script src="{{ url_for('static', filename='js/corr-heatmap.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>   
+    <script src="{{ url_for('static', filename='js/bar.js') }}"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
+    <script src="{{ url_for('static', filename='js/flip.js') }}"></script>
+
+
+
+</body>
+
+</html>
